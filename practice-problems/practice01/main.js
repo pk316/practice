@@ -16,5 +16,13 @@
 var arr = ['bug', 'insect', 'mammal', 'reptile', 'mammoth', 'turtles'];
 var str = 'whales';
 
-
+function biggerWords(str, arr) {
+    var newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (str.length < arr[i].length) {
+            newArr.push(arr[i]);
+        }
+    }
+    console.log(newArr)
+}
 
