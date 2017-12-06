@@ -1,0 +1,67 @@
+<!--Write a compose() function that, when passed an array of functions, -->
+<!--returns a function which executes all of them reverse order, passing -->
+<!--the output of one to the input of the next.-->
+
+<!--Example:-->
+
+<!--Input-->
+<!--```function times9(number){ return 9 * number; }-->
+<!--function floor(number){ return Math.floor(number); }-->
+<!--function add1(number){ return number + 1; }-->
+
+<!--const range1To10 = compose([add1, floor, times9]);-->
+<!--```-->
+
+
+<!--Output-->
+
+<!--```console.log(range1To10(0.35)); // 4-->
+<!--console.log(range1To10(0.9442)); // 9-->
+<!--console.log(range1To10(0.878)); // 8-->
+<!--console.log(range1To10(0.085)); // 1-->
+<!--console.log(range1To10(0.457)); // 5```-->
+
+<!--Another way to look at it is this:-->
+<!--```compose([add1, floor, times9])(0.35);-->
+<!--```-->
+<!--is the same as this:-->
+<!--```add1(floor(times9(0.35)));```-->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+function compose([add,floor,times]){
+
+    function doMath(num){
+
+        function times(num){
+            var num = num * 9;
+
+            function floor(num){
+                var num = Math.floor(num);
+
+                function add(num){
+                    return num + 1
+                }
+                return add(num)
+            }
+            return floor(num);
+        }
+        return times(num)
+    }
+    return doMath(num)
+}
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
