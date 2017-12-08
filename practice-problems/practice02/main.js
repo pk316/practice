@@ -20,3 +20,10 @@ function reverse(arr) {
     return newArr
     console.log(newArr);
 }
+
+
+// reverse array using reverse method
+function rev(arr){
+    return arr.reverse(); 
+}
+console.log(rev(arr));
