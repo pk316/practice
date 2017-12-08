@@ -22,5 +22,15 @@ function fibonacci(num){
         console.log(sequence)
     }
 }
-
 fibonacci(12);
+
+
+function recursivefib(n){
+    if ( n <= 1 ){
+        return 1
+    } else{
+        return recursivefib(n-1) + recursivefib(n-2);
+    }
+}
+
+console.log(recursivefib(12));
