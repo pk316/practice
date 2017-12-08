@@ -24,7 +24,7 @@ function fibonacci(num){
 }
 fibonacci(12);
 
-
+//recursion
 function recursivefib(n){
     if ( n <= 1 ){
         return 1
@@ -32,5 +32,11 @@ function recursivefib(n){
         return recursivefib(n-1) + recursivefib(n-2);
     }
 }
-
 console.log(recursivefib(12));
+
+
+//es6 single line recursion
+
+const recursion = (n) => n<=1? 1 : recursion(n - 1) + recursion(n - 2);
+
+console.log(recursion(12));
