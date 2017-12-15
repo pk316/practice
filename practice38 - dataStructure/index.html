@@ -7,20 +7,31 @@
     <title>Document</title>
 </head>
 <script>
-    var array = [2,3,5,8,9,10,12];
+    var array = [2,3,5,8,9,10,12,14,17,19,20,21];
     function find(needle, haystack){
         if (haystack.length === 0){
             return -1;
         }
         
-        var mid = haystack[Math.floor(haystack.length/2)]
-        if (haystack[mid] === needle){
-            return indexOf(mid);
+        // var mid = haystack[Math.floor(haystack.length/2)]
+        // if (haystack[mid] === needle){
+        //     return mid;
+        // } else {
+        //     if ( haystack[mid] < needle){
+        //         return mid + find(needle, haystack.slice(mid))
+        //     } else {
+        //         return mid - find(needle, haystack.slice(0, mid))
+        //     }
+        // }
+
+        var middle = start + ((end-start)/2) >>0;
+        if (haystack[middle]===needle){
+            return middle;
         } else {
-            if ( haystack[mid] > needle){
-                return find(needle, haystack.slice(mid+1))
-            } else {
-                return find(needle, haystack.slice(0, mid))
+            if (haystack[middle]< needle){
+                return find(needle, haystack, middle+1, end)
+            }else{
+                return find(needle, haystack, middle-1, start)
             }
         }
     }
