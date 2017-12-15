@@ -24,13 +24,19 @@ function fibonacci(num){
 }
 fibonacci(12);
 
-//recursion
-function recursivefib(n){
-    if ( n <= 1 ){
-        return 1
-    } else{
-        return recursivefib(n-1) + recursivefib(n-2);
+//recursion using memoization
+var memory = {};
+function recursivefib(n) {
+    if (memory[n] !== undefined) {
+        return memory[n];
     }
+    if (n < 2) {
+        memory[n] = n;
+        return n;
+    }
+    var value = fibM(n - 1) + fibM(n - 2);
+    memory[n] = value;
+    return value;
 }
 console.log(recursivefib(12));
 
